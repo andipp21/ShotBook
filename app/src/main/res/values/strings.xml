@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ShotBook</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lets_start">Lets start!</string>
+    <string name="image_view_client">Image View Client</string>
+    <string name="search_photographer">Search Photographer</string>
+    <string name="image_view_photographer">Image View Photographer</string>
+    <string name="be_a_photographer">Be a Photographer</string>
+    <string name="continue_string">Continue</string>
+    <string name="what_is_your_name">What is your name?</string>
+    <string name="first_name">FIRST NAME</string>
+    <string name="last_name">LAST NAME</string>
+    <string name="your_email_address">Your email address</string>
+    <string name="email_address">EMAIL ADDRESS</string>
+    <string name="protect_your_account_with_password">Protect your account with Password</string>
+    <string name="password">PASSWORD</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
+</resources>

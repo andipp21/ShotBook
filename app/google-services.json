@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "128617937755",
+    "firebase_url": "https://photographyapp-27a56.firebaseio.com",
+    "project_id": "photographyapp-27a56",
+    "storage_bucket": "photographyapp-27a56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128617937755:android:0890dc928babad9e6d387e",
+        "android_client_info": {
+          "package_name": "com.example.testauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128617937755-4e2d6lu5aauvn9bngcehamr5q2bk9uv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHK3ypApD4bBotfBDErTGBlrekOjypa-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128617937755-4e2d6lu5aauvn9bngcehamr5q2bk9uv6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128617937755:android:e2a8e5bfda51a7336d387e",
+        "android_client_info": {
+          "package_name": "com.tugasAkhir.photographyApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128617937755-sk3si1n7c1o633372ecr8ocnjsle8lpp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tugasAkhir.photographyApp",
+            "certificate_hash": "fd03cbbae404b57be9dd2dacbd35fe509e0fabef"
+          }
+        },
+        {
+          "client_id": "128617937755-4e2d6lu5aauvn9bngcehamr5q2bk9uv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHK3ypApD4bBotfBDErTGBlrekOjypa-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128617937755-4e2d6lu5aauvn9bngcehamr5q2bk9uv6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128617937755:android:3d9f1c5941e60c526d387e",
+        "android_client_info": {
+          "package_name": "com.tugasakhir.shotbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128617937755-4e2d6lu5aauvn9bngcehamr5q2bk9uv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHK3ypApD4bBotfBDErTGBlrekOjypa-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128617937755-4e2d6lu5aauvn9bngcehamr5q2bk9uv6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
