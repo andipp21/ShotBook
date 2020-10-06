@@ -24,7 +24,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnPhotographer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/ivClient"
@@ -34,7 +35,7 @@
             android:contentDescription="@string/image_view_client" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/search_photographer"
@@ -51,7 +52,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnClient"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/ivPhotographer"
@@ -61,7 +63,7 @@
             android:contentDescription="@string/image_view_photographer" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/be_a_photographer"

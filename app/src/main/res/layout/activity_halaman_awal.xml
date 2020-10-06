@@ -9,7 +9,7 @@
     android:background="@color/colorWhite">
 
     <TextView
-        android:text="Find or be a Personal Photographer"
+        android:text="@string/find_or_be_a_personal_photographer"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="64dp"
         android:textSize="32sp"
@@ -20,8 +20,8 @@
     <Button
         android:id="@+id/btnLogin"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/colorWhite"
-        android:text="Login"
+        android:background="@drawable/button_white"
+        android:text="@string/login"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:layout_width="match_parent"
@@ -31,14 +31,12 @@
         android:id="@+id/btnRegister"
         app:layout_constraintBottom_toTopOf="@id/btnLogin"
         android:textColor="@color/colorWhite"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/button_enabled"
         android:layout_marginBottom="16dp"
-        android:text="Register"
+        android:text="@string/register"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

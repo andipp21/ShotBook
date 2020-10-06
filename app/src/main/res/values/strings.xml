@@ -16,4 +16,15 @@
     <string name="protect_your_account_with_password">Protect your account with Password</string>
     <string name="password">PASSWORD</string>
     <string name="confirm_password">CONFIRM PASSWORD</string>
+    <string name="password_harus_terdiri_dari">Password harus terdiri dari :</string>
+    <string name="huruf_kecil">Huruf kecil</string>
+    <string name="angka">Angka</string>
+    <string name="huruf_kapital">Huruf Kapital</string>
+    <string name="minimal_8_karakter">Minimal 8 Karakter</string>
+    <string name="password_tidak_sama">Password Tidak Sama</string>
+    <string name="find_or_be_a_personal_photographer">Find or be a Personal Photographer</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">EMAIL</string>
+    <string name="forgot_password">Forgot Password?</string>
 </resources>
