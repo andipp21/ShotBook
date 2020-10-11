@@ -8,7 +8,7 @@
     <string name="image_view_photographer">Image View Photographer</string>
     <string name="be_a_photographer">Be a Photographer</string>
     <string name="continue_string">Continue</string>
-    <string name="what_is_your_name">What is your name?</string>
+    <string name="personal_detail">Your personal detail</string>
     <string name="first_name">FIRST NAME</string>
     <string name="last_name">LAST NAME</string>
     <string name="your_email_address">Your email address</string>
@@ -27,4 +27,18 @@
     <string name="register">Register</string>
     <string name="email">EMAIL</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="photo_profil">photo profil</string>
+    <string name="city">CITY</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="save">Save</string>
+    <string name="tell_us_about">Tell us about yourself, it will be increase your chance to be hired</string>
+    <string name="home">Home</string>
+    <string name="order">Order</string>
+    <string name="inbox">Inbox</string>
+    <string name="profile">Profile</string>
+    <string name="portofolio_image">Portofolio Image</string>
+    <string name="edit_button">edit button</string>
+    <string name="about_me">About Me</string>
+    <string name="add_portofolio">Add Portofolio</string>
+    <string name="add_package">Add Package</string>
 </resources>

@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.auth.FirebaseAuth
 import com.tugasakhir.shotbook.R
 import com.tugasakhir.shotbook.auth.halamanRegister.presenter.RegisterPresenter
-import com.tugasakhir.shotbook.auth.halamanRegister.view.fragment.RegisterAddEmailFragment
 import com.tugasakhir.shotbook.auth.halamanRegister.view.fragment.RegisterAddNameFragment
 import com.tugasakhir.shotbook.auth.halamanRegister.view.fragment.RegisterAddPasswordFragment
 import com.tugasakhir.shotbook.auth.halamanRegister.view.fragment.RegisterSelectRoleFragment
@@ -46,14 +45,6 @@ class RegisterActivity : AppCompatActivity(), RegisterPresenter.Listener {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.flContainerRegister, RegisterAddNameFragment())
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .commit()
-    }
-
-    override fun toEmailFragment() {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.flContainerRegister, RegisterAddEmailFragment())
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .commit()
     }

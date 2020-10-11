@@ -15,6 +15,8 @@ class LoginPresenter(
     interface Listener {
         fun buttonEnabled()
         fun buttonDisabled()
+
+        fun goPhotographyPage(id:String)
     }
 
     private lateinit var emailLogin: String
@@ -63,7 +65,8 @@ class LoginPresenter(
                     Log.d("Sign-In", "signInWithEmail:success")
                     val user = mAuth.currentUser
                     user?.let { getData(it) }
-                    //updateUI(user)
+
+                    //menuju photography page
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Sign-In", "signInWithEmail:failure", task.exception)
@@ -89,6 +92,8 @@ class LoginPresenter(
                 } else {
                     Log.d("Data Login", "No such document")
                 }
+
+                listener.goPhotographyPage(usr.uid)
             }
             .addOnFailureListener { exception ->
                 Log.d("Data Login", "get failed with ", exception)

@@ -1,4 +1,4 @@
-package com.tugasakhir.shotbook.auth.halamanRegister.view.fragment
+package com.tugasakhir.shotbook.photography.order.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.tugasakhir.shotbook.R
-import com.tugasakhir.shotbook.auth.halamanRegister.view.RegisterActivity
-import kotlinx.android.synthetic.main.fragment_register_add_email.*
+import com.tugasakhir.shotbook.photography.main.view.PhotographerMainActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,10 +15,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [RegisterAddEmailFragment.newInstance] factory method to
+ * Use the [PhotographerOrderFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RegisterAddEmailFragment : Fragment() {
+class PhotographerOrderFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -37,19 +36,13 @@ class RegisterAddEmailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_add_email, container, false)
+        return inflater.inflate(R.layout.fragment_photographer_order, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnContinue.setOnClickListener {
-            val email = etEmail.text.toString()
-
-            (activity as RegisterActivity).presenter.setEmailAccount(email)
-
-            (activity as RegisterActivity).toPasswordFragment()
-        }
+        (activity as PhotographerMainActivity).supportActionBar?.title = "Order"
     }
 
     companion object {
@@ -59,12 +52,12 @@ class RegisterAddEmailFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment RegisterAddEmailFragment.
+         * @return A new instance of fragment PhotographerOrderFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            RegisterAddEmailFragment().apply {
+            PhotographerOrderFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

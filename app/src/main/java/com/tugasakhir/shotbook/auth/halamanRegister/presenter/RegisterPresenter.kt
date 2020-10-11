@@ -1,8 +1,6 @@
 package com.tugasakhir.shotbook.auth.halamanRegister.presenter
 
 import android.util.Log
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -11,32 +9,32 @@ import com.tugasakhir.shotbook.auth.halamanRegister.view.RegisterActivity
 
 class RegisterPresenter(
     val listener: Listener,
-    val mAuth: FirebaseAuth,
+    private val mAuth: FirebaseAuth,
     val activity: RegisterActivity
 ) {
     interface Listener {
         fun toNameFragment()
-        fun toEmailFragment()
         fun toPasswordFragment()
     }
 
-    lateinit var accountRole: String
-    lateinit var firstName: String
-    lateinit var lastName: String
-    lateinit var email: String
-    lateinit var password: String
+    private lateinit var accountRole: String
+    private lateinit var firstName: String
+    private lateinit var lastName: String
+    private lateinit var email: String
+    private lateinit var city: String
+    private lateinit var phoneNumber: String
+    private lateinit var password: String
 
     fun setRoleAccount(role: String) {
         accountRole = role
     }
 
-    fun setNameAccount(fName: String, lName: String) {
+    fun setPersonalData(fName: String, lName: String, mail: String, ct: String, pn: String) {
         firstName = fName
         lastName = lName
-    }
-
-    fun setEmailAccount(mail: String) {
         email = mail
+        city = ct
+        phoneNumber = pn
     }
 
     fun setPasswordAccount(pw: String) {
@@ -49,45 +47,33 @@ class RegisterPresenter(
 
     fun register() {
         mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(activity,
-                OnCompleteListener<AuthResult?> { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("register", "createUserWithEmail:success")
-                        val user: FirebaseUser? = mAuth.getCurrentUser()
-                        user?.let { saveData(it) }
-                        //updateUI(user)
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w("register", "createUserWithEmail:failure", task.exception)
-//                        Toast.makeText(
-//                            this@EmailPasswordActivity, "Authentication failed.",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-                        //updateUI(null)
-                    }
-
-                    // ...
-                })
+            .addOnCompleteListener(
+                activity
+            ) { task ->
+                if (task.isSuccessful) {
+                    Log.d("register", "createUserWithEmail:success")
+                    val user: FirebaseUser? = mAuth.currentUser
+                    user?.let { saveData(it) }
+                } else {
+                    Log.w("register", "createUserWithEmail:failure", task.exception)
+                }
+            }
     }
 
-    fun saveData(usr: FirebaseUser) {
-        //get user data
+    private fun saveData(usr: FirebaseUser) {
+        val db = FirebaseFirestore.getInstance().collection("users")
 
-        val db = FirebaseFirestore.getInstance()
-
-        // Create a new user with a first and last name
         // Create a new user with a first and last name
         val user: MutableMap<String, Any> = HashMap()
         user["first_name"] = firstName
         user["last_name"] = lastName
+        user["email"] = email
+        user["city"] = city
+        user["phone_number"] = phoneNumber
         user["role"] = accountRole
 
 // Add a new document with a generated ID
-
-// Add a new document with a generated ID
-        db.collection("users")
-            .document(usr.uid)
+        db.document(usr.uid)
             .set(user)
             .addOnSuccessListener {
                 Log.d(

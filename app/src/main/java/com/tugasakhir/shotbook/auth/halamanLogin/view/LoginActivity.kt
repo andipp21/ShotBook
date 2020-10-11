@@ -1,5 +1,6 @@
 package com.tugasakhir.shotbook.auth.halamanLogin.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.tugasakhir.shotbook.R
 import com.tugasakhir.shotbook.auth.halamanLogin.presenter.LoginPresenter
+import com.tugasakhir.shotbook.photography.main.view.PhotographerMainActivity
 import com.tugasakhir.shotbook.databinding.ActivityLoginBinding
 
 
@@ -78,5 +80,11 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Listener {
     override fun buttonDisabled() {
         binding.btnLogin.isClickable = false
         binding.btnLogin.setBackgroundResource(R.drawable.button_disabled)
+    }
+
+    override fun goPhotographyPage(id:String) {
+        val intent = Intent(this, PhotographerMainActivity::class.java)
+        intent.putExtra("user id", id)
+        startActivity(intent)
     }
 }
