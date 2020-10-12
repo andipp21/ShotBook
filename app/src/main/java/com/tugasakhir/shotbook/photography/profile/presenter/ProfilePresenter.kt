@@ -38,10 +38,10 @@ class ProfilePresenter(val listener: Listener) {
     }
 
     fun uploadImage(filePath: Uri?, id: String){
+
         if(filePath != null){
             val firebaseStorageRef = FirebaseStorage.getInstance().reference
-            val ref = firebaseStorageRef.child("profile_picture/user-$id")
-
+            val ref = firebaseStorageRef.child("users/$id/profile_picture/profil-picture")
             ref.putFile(filePath).continueWithTask { task ->
                 if (!task.isSuccessful) {
                     task.exception?.let {
@@ -52,22 +52,9 @@ class ProfilePresenter(val listener: Listener) {
             }.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val downloadUri = task.result
-
                     savePhotoProfile(downloadUri.toString(), id)
                 }
             }
-
-//            ref.putFile(filePath).addOnCompleteListener {
-//
-//            }.addOnSuccessListener {
-//                //                Toast.makeText(activity, "Image Uploaded", Toast.LENGTH_SHORT).show()
-//                val uriDownload = it.task.result
-//
-//                Log.d("URI Photo Profile", "$uriDownload")
-////                savePhotoProfile()
-//            }.addOnFailureListener {
-//        //                Toast.makeText(activity, "Image Uploading Failed " + e.message, Toast.LENGTH_SHORT).show()
-//            }
         }
     }
 

@@ -13,7 +13,7 @@ class PhotographerTabAdapter(fm: FragmentManager, behavior: Int, val data: Map<S
 
     override fun getItem(position: Int): Fragment = when (position) {
         0 -> ProfileAboutFragment(data, usrID)
-        1 -> ProfilePortofolioFragment()
+        1 -> ProfilePortofolioFragment(data, usrID)
         2 -> ProfilePackageFragment()
         else -> ProfileAboutFragment(data, usrID)
     }
