@@ -13,7 +13,6 @@ class ProfileAboutPresenter(val listener: Listener) {
     private val db = FirebaseFirestore.getInstance().collection("users")
 
     fun setData(dt: Map<String, Any>) {
-
         listener.showData(dt)
     }
 

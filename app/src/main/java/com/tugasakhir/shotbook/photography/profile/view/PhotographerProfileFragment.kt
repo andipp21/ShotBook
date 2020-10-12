@@ -1,12 +1,19 @@
 package com.tugasakhir.shotbook.photography.profile.view
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 import com.bumptech.glide.Glide
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.tugasakhir.shotbook.R
 import com.tugasakhir.shotbook.photography.main.view.PhotographerMainActivity
 import com.tugasakhir.shotbook.photography.profile.adapter.PhotographerTabAdapter
@@ -14,6 +21,7 @@ import com.tugasakhir.shotbook.photography.profile.presenter.ProfilePresenter
 import kotlinx.android.synthetic.main.fragment_photographer_profile.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +40,10 @@ class PhotographerProfileFragment : Fragment(), ProfilePresenter.Listener {
     private var usrID: String? = null
 
     lateinit var presenter: ProfilePresenter
+
+    private var filePath: Uri? = null
+    private var firebaseStorage: FirebaseStorage? = null
+    private var storageReference: StorageReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +67,15 @@ class PhotographerProfileFragment : Fragment(), ProfilePresenter.Listener {
         presenter = ProfilePresenter(this)
 
         (activity as PhotographerMainActivity).supportActionBar?.title = "Profile"
+
+        firebaseStorage = FirebaseStorage.getInstance()
+        storageReference = FirebaseStorage.getInstance().reference
+
+        ivPhotographerPhotoProfil.setOnClickListener {
+            imagePicker()
+        }
+
+
     }
 
     override fun onResume() {
@@ -119,4 +140,33 @@ class PhotographerProfileFragment : Fragment(), ProfilePresenter.Listener {
         viewPagerProfile.adapter = adapter
         tabLayout.setupWithViewPager(viewPagerProfile)
     }
+
+    private fun imagePicker() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.P)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            if(data == null || data.data == null){
+                return
+            }
+            filePath = data.data
+            try {
+                ivPhotographerPhotoProfil.setImageURI(filePath)
+                usrID?.let { presenter.uploadImage(filePath, it) }
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+
+
+
+
 }
