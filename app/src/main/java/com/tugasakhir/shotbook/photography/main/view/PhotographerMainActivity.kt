@@ -11,6 +11,7 @@ import com.tugasakhir.shotbook.photography.main.presenter.PhotographerMainPresen
 import com.tugasakhir.shotbook.photography.order.view.PhotographerOrderFragment
 import com.tugasakhir.shotbook.photography.profile.view.PhotographerProfileFragment
 import com.tugasakhir.shotbook.databinding.ActivityPhotographerMainBinding
+import com.tugasakhir.shotbook.photography.profile.view.profilPortofolio.AddPortofolioFragment
 import kotlinx.android.synthetic.main.activity_photographer_main.*
 
 class PhotographerMainActivity : AppCompatActivity(), PhotographerMainPresenter.Listener {

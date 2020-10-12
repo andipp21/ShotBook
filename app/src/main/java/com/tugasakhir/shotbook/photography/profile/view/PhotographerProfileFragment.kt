@@ -42,8 +42,6 @@ class PhotographerProfileFragment : Fragment(), ProfilePresenter.Listener {
     lateinit var presenter: ProfilePresenter
 
     private var filePath: Uri? = null
-    private var firebaseStorage: FirebaseStorage? = null
-    private var storageReference: StorageReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,14 +66,11 @@ class PhotographerProfileFragment : Fragment(), ProfilePresenter.Listener {
 
         (activity as PhotographerMainActivity).supportActionBar?.title = "Profile"
 
-        firebaseStorage = FirebaseStorage.getInstance()
-        storageReference = FirebaseStorage.getInstance().reference
-
         ivPhotographerPhotoProfil.setOnClickListener {
             imagePicker()
         }
 
-
+        tabLayout.setupWithViewPager(viewPagerProfile)
     }
 
     override fun onResume() {
@@ -138,7 +133,6 @@ class PhotographerProfileFragment : Fragment(), ProfilePresenter.Listener {
         )
 
         viewPagerProfile.adapter = adapter
-        tabLayout.setupWithViewPager(viewPagerProfile)
     }
 
     private fun imagePicker() {
